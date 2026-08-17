@@ -1,0 +1,254 @@
+:root {
+    --bg: #0A0A0A;
+    --surface: #121212;
+    --surface-2: #1C1C1C;
+    --border: #2A2A2A;
+    --text: #F5F5F5;
+    --muted: #A3A3A3;
+    --primary: #FFFFFF;
+    --primary-hover: #D4D4D4;
+    --accent: #00E5FF;
+    --danger: #FF4D4F;
+    --success: #00C853;
+    --font-main: "Inter", sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-main);
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Custom Title Bar */
+.title-bar {
+    height: 32px;
+    background: var(--surface);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    user-select: none;
+}
+
+.drag-region {
+    flex-grow: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    -webkit-app-region: drag;
+}
+
+.window-controls {
+    display: flex;
+    height: 100%;
+    -webkit-app-region: no-drag;
+}
+
+.window-controls button {
+    width: 46px;
+    height: 100%;
+    border: none;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.window-controls button:hover {
+    background: var(--surface-2);
+}
+
+.window-controls button.close:hover {
+    background: var(--danger);
+}
+
+/* App Layout */
+.app-container {
+    display: flex;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.sidebar {
+    width: 280px;
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    padding: 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.notes-list {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.note-item {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.note-item:hover {
+    background: var(--surface-2);
+}
+
+.note-item.active {
+    background: var(--surface-2);
+    border-left: 3px solid var(--accent);
+}
+
+.note-item-title {
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.note-item-preview {
+    font-size: 12px;
+    color: var(--muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Editor */
+.editor-section {
+    flex-grow: 1;
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.editor-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 40px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.note-title-input {
+    background: transparent;
+    border: none;
+    color: var(--text);
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    outline: none;
+    font-family: var(--font-main);
+}
+
+.note-textarea {
+    flex-grow: 1;
+    background: transparent;
+    border: none;
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.6;
+    resize: none;
+    outline: none;
+    font-family: var(--font-mono);
+}
+
+.editor-footer {
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: var(--muted);
+}
+
+/* Buttons */
+.primary-btn {
+    width: 100%;
+    padding: 12px;
+    background: var(--primary);
+    color: var(--bg);
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.primary-btn:hover {
+    background: var(--primary-hover);
+}
+
+.danger-btn {
+    padding: 6px 12px;
+    background: transparent;
+    color: var(--danger);
+    border: 1px solid var(--danger);
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.danger-btn:hover {
+    background: var(--danger);
+    color: white;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--muted);
+}

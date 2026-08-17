@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vyrnethos Notes</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="mono-tech">
+    <div class="title-bar">
+        <div class="drag-region">Vyrnethos Notes</div>
+        <div class="window-controls">
+            <button id="min-btn" aria-label="Minimize">
+                <svg width="12" height="1" viewBox="0 0 12 1" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="12" height="1" fill="white"/></svg>
+            </button>
+            <button id="max-btn" aria-label="Maximize">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0.5" y="0.5" width="9" height="9" stroke="white"/></svg>
+            </button>
+            <button id="close-btn" class="close" aria-label="Close">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L9 9M9 1L1 9" stroke="white"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <main class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <button id="new-note-btn" class="primary-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    New Note
+                </button>
+            </div>
+            <div id="notes-list" class="notes-list"></div>
+        </aside>
+
+        <section class="editor-section">
+            <div id="editor-placeholder" class="placeholder">
+                <p>Select or create a note to start writing.</p>
+            </div>
+            <div id="editor-container" class="editor-container hidden">
+                <input type="text" id="note-title" placeholder="Note Title" class="note-title-input">
+                <textarea id="note-content" placeholder="Start typing your thoughts here..." class="note-textarea"></textarea>
+                <div class="editor-footer">
+                    <span id="save-status">Changes saved locally</span>
+                    <button id="delete-note-btn" class="danger-btn">Delete Note</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="renderer.js"></script>
+</body>
+</html>

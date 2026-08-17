@@ -1,0 +1,27 @@
+{
+  "name": "vyrnethos-notes",
+  "version": "1.0.0",
+  "description": "A professional Mono-Tech styled notes application built with Electron.",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder build --win --publish never"
+  },
+  "keywords": [],
+  "author": "Vyrnethos",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1"
+  },
+  "build": {
+    "appId": "com.vyrnethos.notes",
+    "productName": "VyrnethosNotes",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "portable"
+    }
+  }
+}
